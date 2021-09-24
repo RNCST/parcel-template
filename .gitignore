@@ -1,0 +1,7 @@
+.cache
+.DS_Stroe 
+# mac 이용자만
+
+dist
+
+node_modules

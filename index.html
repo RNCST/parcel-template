@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ParcelBundler</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <link rel="stylesheet" href="./scss/main.scss">
+  <script defer src="./js/main.js"></script>
+</head>
+<body>
+  <h1>Hello Parcel!!</h1>
+  <img src="./img/cat.jpg" alt="logo" width="500px">
+
+</body>
+</html>
+
+  <!-- https://www.npmjs.com/package/parcel-plugin-static-files-copy -->
+  <!-- 
+    현재 parcel가 dist폴더로 빌드한 내용을 가지고 브라우저에서 실행하기떄문에
+    ico 파일을 root에 넣는다고해서 그대로 실행이 되는 것이 아니다.
+    그렇다고 dist에 파일을 넣게되면 의도와는 다르게 실행될 여지가 있기 때문에
+    parcel-plugin-static-files 라는 패키지를 이용해 static이라는 폴더안에서 
+    형태가 보존되면서 dist로 넘어가도록 만들어줄 수 있다.
+   -->
+
+   <!-- autoprefixer postcss -->
+    <!-- 
+  SCSS => 
+  display :flex;
+      구형브라우저에서는 표준의 기술을 사용하지 못하는데 그럴때도 작동을 할 수 있도록
+      autoprefixer가 도와준다. (스타일 보험의 형태)
+  DIST => 
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  
+  package.json
+    "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+
+  .postsccrc.js ==> rc란?? run commands 실행명령을 나타낸다 
+  https://en.wikipedia.org/wiki/Run_commands
+  module.exports = {
+  plugins: [
+    require('autoprefixer')
+  ]
+}
+
+     -->
+
+  <!-- BABEL  -->
+  <!-- 
+    ECMAScript는 매년 새로운 버전이 나오는데
+    ES6 ES7 ES8 최신의 문법이 동작하지않는 구형브라우저에서는 작동하지않을수있다.
+    이때 구형브라우저로 동작할 수 있도록 ES5로 COMPILE해주는 COMPILER가 BABEL이다.
+
+  npm i -D @babel/core @babel/preset-env @babel/plugin-transform-runtime
+
+  .babelrc.js
+  module.exports = {
+    presets: [
+    ['@babel/preset-env']
+  ],
+  plugins: [
+    ['@babel/plugin-transform-runtime']
+  ]
+}
+
+   -->
+   
+   <!-- 
+     parcel CLI  
+     https://ko.parceljs.org/cli.html
+
+     Serve 개발용 서버의 시작
+
+     Build Asset의 빌드
+    
+    
+    -->
